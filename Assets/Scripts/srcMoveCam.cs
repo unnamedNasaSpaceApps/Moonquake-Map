@@ -26,16 +26,22 @@ public class srcMoveCam : MonoBehaviour
 
     private void rotate(){
         if(Input.GetKey("w")){
-             transform.Rotate(Time.deltaTime * speedRotation, 0, 0, Space.Self);
+             transform.Rotate(-Time.deltaTime * speedRotation, 0, 0, Space.World);
         }
         if(Input.GetKey("s")){
-             transform.Rotate(-Time.deltaTime * speedRotation, 0, 0, Space.Self);
+             transform.Rotate(Time.deltaTime * speedRotation, 0, 0, Space.World);
         }
         if(Input.GetKey("a")){
-             transform.Rotate(0, -Time.deltaTime * speedRotation,  0, Space.Self);
+             transform.Rotate(0, -Time.deltaTime * speedRotation,  0, Space.World);
         }
         if(Input.GetKey("d")){
-             transform.Rotate(0, Time.deltaTime * speedRotation,  0, Space.Self);
+             transform.Rotate(0, Time.deltaTime * speedRotation,  0, Space.World);
+        }
+        if(Input.GetKey("q")){
+             transform.Rotate(0, 0,  -Time.deltaTime * speedRotation, Space.World);
+        }
+        if(Input.GetKey("e")){
+             transform.Rotate(0, 0,  Time.deltaTime * speedRotation, Space.World);
         }
     }
 

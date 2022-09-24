@@ -156,7 +156,7 @@ MonoBehaviour:
   yAngle: 0
   zAngle: 0
   speedRotation: 100
-  speedZoom: 1500
+  speedZoom: 3000
   moon: {fileID: 571450964}
   camera: {fileID: 963194225}
 --- !u!4 &571450966
