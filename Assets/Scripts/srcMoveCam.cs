@@ -9,7 +9,7 @@ public class srcMoveCam : MonoBehaviour
     public float speedRotation = 0f;
     public float speedZoom = 0f;
    
-    public GameObject moon, camera;
+    public GameObject globalCamera, camera;
 
     // Start is called before the first frame update
     void Start()
@@ -26,31 +26,31 @@ public class srcMoveCam : MonoBehaviour
 
     private void rotate(){
         if(Input.GetKey("w")){
-             transform.Rotate(-Time.deltaTime * speedRotation, 0, 0, Space.World);
+             globalCamera.transform.Rotate(Time.deltaTime * speedRotation, 0, 0, Space.Self);
         }
         if(Input.GetKey("s")){
-             transform.Rotate(Time.deltaTime * speedRotation, 0, 0, Space.World);
+             globalCamera.transform.Rotate(-Time.deltaTime * speedRotation, 0, 0, Space.Self);
         }
         if(Input.GetKey("a")){
-             transform.Rotate(0, -Time.deltaTime * speedRotation,  0, Space.World);
+             globalCamera.transform.Rotate(0, Time.deltaTime * speedRotation,  0, Space.Self);
         }
         if(Input.GetKey("d")){
-             transform.Rotate(0, Time.deltaTime * speedRotation,  0, Space.World);
+             globalCamera.transform.Rotate(0, -Time.deltaTime * speedRotation,  0, Space.Self);
         }
         if(Input.GetKey("q")){
-             transform.Rotate(0, 0,  -Time.deltaTime * speedRotation, Space.World);
+             globalCamera.transform.Rotate(0, 0,  Time.deltaTime * speedRotation, Space.Self);
         }
         if(Input.GetKey("e")){
-             transform.Rotate(0, 0,  Time.deltaTime * speedRotation, Space.World);
+             globalCamera.transform.Rotate(0, 0,  -Time.deltaTime * speedRotation, Space.Self);
         }
     }
 
     private void zoom(){
-        if(Input.GetAxis("Mouse ScrollWheel") > 0 && camera.transform.position.z < -30)
-            camera.transform.position += new Vector3(0.00f, 0.00f, Input.GetAxis("Mouse ScrollWheel") * speedZoom * Time.deltaTime);
+        if(Input.GetAxis("Mouse ScrollWheel") > 0 && camera.transform.localPosition.z < -30)
+            camera.transform.localPosition += new Vector3(0.00f, 0.00f, Input.GetAxis("Mouse ScrollWheel") * speedZoom * Time.deltaTime);
 
-        if(Input.GetAxis("Mouse ScrollWheel") < 0 && camera.transform.position.z > -80)
-            camera.transform.position += new Vector3(0.00f, 0.00f, Input.GetAxis("Mouse ScrollWheel") * speedZoom * Time.deltaTime);
+        if(Input.GetAxis("Mouse ScrollWheel") < 0 && camera.transform.localPosition.z > -80)
+            camera.transform.localPosition += new Vector3(0.00f, 0.00f, Input.GetAxis("Mouse ScrollWheel") * speedZoom * Time.deltaTime);
     }
 }
 
