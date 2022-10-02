@@ -3,18 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moonquakes : MonoBehaviour
+public class Moonquake : MonoBehaviour
 {
-    public int id { get; set; }
-    public int apolo { get; set; }
-    public DateTime date { get; set; }
-    public float intensity { get; set; }
+    public string location { get; set; }
+    public float latitude { get; set; }
+    public float longitude { get; set; }
+    public float scale { get; set; }
+    public float scaleFreq { get; set; }
+    public DateTime startTime { get; set; }
+    public DateTime endTime { get; set; }
 
-    public moonquakes(int id, int apolo, DateTime date, float intensity)
+    public Moonquake(string location, float latitude, float longitude, float scale, float scaleFreq, DateTime startTime, DateTime endTime)
     {
-        this.id = id;
-        this.apolo = apolo;
-        this.date = date;
-        this.intensity = intensity;
+        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.scale = scale;
+        this.scaleFreq = scaleFreq;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 }
